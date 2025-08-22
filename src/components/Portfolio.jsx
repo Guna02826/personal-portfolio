@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 // --- Hero Section ---
 const Hero = () => (
   <section className="min-h-screen flex flex-col justify-center items-center bg-gray-900 text-white text-center p-8">
-    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+    <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 break-words">
       Gunasekaraselvapandian
     </h1>
-    <p className="text-lg md:text-xl mb-6">Chennai, India</p>
-    <div className="space-x-4">
+    <p className="text-base sm:text-lg md:text-xl mb-6">Chennai, India</p>
+    <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
       <a
         href="/Gunasekaraselvapandian_Resume.pdf"
         download
@@ -36,7 +36,7 @@ const Hero = () => (
 const About = () => (
   <section className="bg-white text-gray-800 p-8 text-center">
     <h2 className="text-3xl font-bold mb-4">Summary</h2>
-    <p className="max-w-3xl mx-auto">
+    <p className="max-w-3xl mx-auto mb-8">
       Recent Computer Science graduate (2024) with hands-on full-stack MERN and
       Spring Boot experience. Passionate about building scalable backend systems
       using Java, Node.js, PostgreSQL/MongoDB, and AWS basics. Eager to
@@ -45,7 +45,7 @@ const About = () => (
     </p>
 
     <h3 className="text-2xl font-semibold mt-8 mb-2">Technical Skills</h3>
-    <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto text-left">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto text-left">
       <p><strong>Languages:</strong> Java, JavaScript, SQL</p>
       <p><strong>Backend:</strong> Node.js, Express.js, Spring Boot, REST APIs, JWT Auth</p>
       <p><strong>Frontend:</strong> React.js, HTML5, CSS3</p>
@@ -100,7 +100,7 @@ const Projects = () => {
   return (
     <section id="projects" className="bg-gray-100 p-8">
       <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projectList.map((project, i) => (
           <motion.div
             key={i}
@@ -120,23 +120,25 @@ const Projects = () => {
             </div>
             <p className="mb-2">{project.desc}</p>
             <p className="text-sm text-gray-600 mb-2">Tech: {project.tech}</p>
-            <a
-              className="text-blue-600 hover:underline"
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>{" "}
-            |{" "}
-            <a
-              className="text-blue-600 hover:underline"
-              href={project.demo}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Live Demo
-            </a>
+            <div className="flex flex-wrap gap-2">
+              <a
+                className="text-blue-600 hover:underline"
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+              |
+              <a
+                className="text-blue-600 hover:underline"
+                href={project.demo}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Live Demo
+              </a>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -148,7 +150,7 @@ const Projects = () => {
 const Certifications = () => (
   <section className="bg-gray-50 text-gray-800 p-8">
     <h2 className="text-3xl font-bold text-center mb-6">Certifications</h2>
-    <div className="flex justify-center">
+    <div className="flex flex-col sm:flex-row justify-center gap-6 flex-wrap">
       <motion.a
         href="/Certificate of Cloud Computing.jpg"
         target="_blank"
@@ -185,31 +187,31 @@ const Contact = () => (
       name="contact"
       method="POST"
       action="https://formspree.io/f/xblgjbzn"
-      className="flex flex-col max-w-md mx-auto space-y-4"
+      className="flex flex-col max-w-md mx-auto space-y-4 w-full"
     >
       <input
         type="text"
         name="name"
         placeholder="Your Name"
         required
-        className="p-2 border rounded"
+        className="p-2 border rounded w-full"
       />
       <input
         type="email"
         name="email"
         placeholder="Your Email"
         required
-        className="p-2 border rounded"
+        className="p-2 border rounded w-full"
       />
       <textarea
         name="message"
         placeholder="Message"
         required
-        className="p-2 border rounded"
+        className="p-2 border rounded w-full"
       />
       <button
         type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full sm:w-auto"
       >
         Send
       </button>
@@ -222,7 +224,7 @@ const Footer = () => (
   <footer className="bg-gray-800 text-white text-center p-8">
     <div className="max-w-3xl mx-auto space-y-4">
       <p className="text-lg font-semibold">Connect with Me</p>
-      <div className="flex justify-center space-x-6">
+      <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
         <a
           href="https://github.com/Guna02826"
           target="_blank"
