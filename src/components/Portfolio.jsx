@@ -83,8 +83,8 @@ const Projects = () => {
       title: "Trackeroo – Expense Tracker Web App",
       desc: "Built a Spring Boot + React app for expense tracking with transaction CRUD features. Added JWT-based authentication and PostgreSQL for secure, efficient data management. Deployed on Netlify (frontend) and Render (backend) with responsive UI.",
       tech: "Spring Boot, React, PostgreSQL",
-      github: "https://github.com/Guna02826/chatterbox",
-      demo: "https://chatterboxweb.netlify.app/",
+      github: "https://github.com/Guna02826/expense-tracker",
+      demo: "https://trackeroo.netlify.app",
       image: "/Trackeroo.png",
     },
     {
