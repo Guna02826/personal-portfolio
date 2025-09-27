@@ -88,6 +88,14 @@ const Projects = () => {
       image: "/Trackeroo.png",
     },
     {
+      title: "Nexus-forge - Document Management System",
+      desc: "Developed an AI-powered collaborative knowledge platform using React, Node.js, Express, and Gemini API integration. Enabled secure document creation, real-time activity feeds, and intelligent Q&A search. Delivered enhanced team productivity and streamlined knowledge sharing, demonstrating expertise in full-stack development and AI service integration.",
+      tech: "React, Node.js, Express, Gemini API",
+      github: "https://github.com/Guna02826/nexus-forge",
+      demo: "https://nexusforgeapp.netlify.app/",
+      image: "/Nexus-forge.png",
+    },
+    {
       title: "ChatterBox – Real-Time Chat App",
       desc: "Real-time messaging app using WebSockets, JWT auth, and MongoDB for chat history. Built scalable backend API with Express; reduced response time by optimizing routes. Explored Kafka basics for possible pub-sub extension.",
       tech: "React, Node.js, Socket.io, MongoDB",
