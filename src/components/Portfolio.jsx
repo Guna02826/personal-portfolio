@@ -46,24 +46,55 @@ const About = () => (
 
     <h3 className="text-2xl font-semibold mt-8 mb-2">Technical Skills</h3>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto text-left">
-      <p><strong>Languages:</strong> Java, JavaScript, SQL</p>
-      <p><strong>Backend:</strong> Node.js, Express.js, Spring Boot, REST APIs, JWT Auth</p>
-      <p><strong>Frontend:</strong> React.js, HTML5, CSS3</p>
-      <p><strong>Databases:</strong> MongoDB, PostgreSQL</p>
-      <p><strong>Tools:</strong> Git, GitHub, Postman, VS Code, Netlify, Render</p>
-      <p><strong>Cloud & Infra:</strong> AWS (EC2, S3 basics), Elasticsearch (basic)</p>
-      <p><strong>Concepts:</strong> OOP, Data Structures, API Design, JWT Auth, Version Control</p>
+      <p>
+        <strong>Languages:</strong> Java, JavaScript, SQL
+      </p>
+      <p>
+        <strong>Backend:</strong> Node.js, Express.js, Spring Boot, REST APIs,
+        JWT Auth
+      </p>
+      <p>
+        <strong>Frontend:</strong> React.js, HTML5, CSS3
+      </p>
+      <p>
+        <strong>Databases:</strong> MongoDB, PostgreSQL
+      </p>
+      <p>
+        <strong>Tools:</strong> Git, GitHub, Postman, VS Code, Netlify, Render
+      </p>
+      <p>
+        <strong>Cloud & Infra:</strong> AWS (EC2, S3 basics), Elasticsearch
+        (basic)
+      </p>
+      <p>
+        <strong>Concepts:</strong> OOP, Data Structures, API Design, JWT Auth,
+        Version Control
+      </p>
     </div>
 
     <h3 className="text-2xl font-semibold mt-8 mb-2">Education</h3>
-    <p>B.E. in Computer Science and Engineering, Sathyabama Institute of Science and Technology, Chennai</p>
-    <p>Key Courses: Data Structures & Algorithms, Operating Systems, DBMS, Software Engineering</p>
+    <p>
+      B.E. in Computer Science and Engineering, Sathyabama Institute of Science
+      and Technology, Chennai
+    </p>
+    <p>
+      Key Courses: Data Structures & Algorithms, Operating Systems, DBMS,
+      Software Engineering
+    </p>
 
     <h3 className="text-2xl font-semibold mt-8 mb-2">Soft Skills</h3>
     <ul className="list-disc list-inside max-w-3xl mx-auto text-left">
-      <li>Excellent communicator – Presented live demos to 20+ peers during project expos</li>
-      <li>Problem-solver – Debugged and optimized APIs for multiple projects</li>
-      <li>Team player – Collaborated in Agile-style 3-member teams with Git-based workflows</li>
+      <li>
+        Excellent communicator – Presented live demos to 20+ peers during
+        project expos
+      </li>
+      <li>
+        Problem-solver – Debugged and optimized APIs for multiple projects
+      </li>
+      <li>
+        Team player – Collaborated in Agile-style 3-member teams with Git-based
+        workflows
+      </li>
     </ul>
   </section>
 );
@@ -102,6 +133,14 @@ const Projects = () => {
       github: "https://github.com/Guna02826/chatterbox",
       demo: "https://chatterboxweb.netlify.app/",
       image: "/Chatterbox.png",
+    },
+    {
+      title: "LeadLynx – Lead Management System",
+      desc: "A minimal lead & campaign management app",
+      tech: "React, Node.js, Express.js, MongoDB, JWT, Bcrypt, Toastify",
+      github: "https://github.com/Guna02826/LeadLynx",
+      demo: "https://leadlynx.netlify.app/",
+      image: "/Leadlynx.gif",
     },
   ];
 
@@ -251,7 +290,8 @@ const Footer = () => (
         </a>
       </div>
       <p className="mt-4 text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} Gunasekaraselvapandian. All rights reserved.
+        &copy; {new Date().getFullYear()} Gunasekaraselvapandian. All rights
+        reserved.
       </p>
     </div>
   </footer>
