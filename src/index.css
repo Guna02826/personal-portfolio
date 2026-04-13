@@ -1,5 +1,67 @@
 @import "tailwindcss";
 
+:root {
+  --page-bg: #ffffff;
+  --page-ink: #0f172a;
+  --page-muted: #475569;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  line-height: 1.5;
+  background: #ffffff;
+  color: var(--page-ink);
+  font-family: "Segoe UI", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:not([class*="text-"]):not(.project-action-primary):not(.project-action-secondary) {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+section[id] {
+  scroll-margin-top: 2rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.project-action-primary,
+.project-action-primary:visited,
+.project-action-primary:hover,
+.project-action-primary:focus-visible {
+  color: #ffffff !important;
+}
+
+.project-action-secondary,
+.project-action-secondary:visited,
+.project-action-secondary:hover,
+.project-action-secondary:focus-visible {
+  color: #0f172a !important;
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.18);
 }

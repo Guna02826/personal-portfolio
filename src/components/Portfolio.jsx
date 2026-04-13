@@ -1,314 +1,510 @@
-import { BrowserRouter as Router } from "react-router-dom";
-import { motion } from "framer-motion";
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Education", href: "#education" },
+  { label: "Contact", href: "#contact" },
+];
 
-// --- Hero Section ---
-const Hero = () => (
-  <section className="min-h-screen flex flex-col justify-center items-center bg-gray-900 text-white text-center p-8">
-    <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-4 break-words">
-      Gunasekaraselvapandian
-    </h1>
-    <p className="text-base sm:text-lg md:text-xl mb-6">Chennai, India</p>
-    <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
-      <a
-        href="/Gunasekaraselvapandian_Resume.pdf"
-        download
-        className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-xl transition"
-      >
-        Download Resume
-      </a>
-      <a
-        href="#projects"
-        className="bg-gray-700 hover:bg-gray-800 px-6 py-2 rounded-xl transition"
-      >
-        View Projects
-      </a>
-      <a
-        href="#contact"
-        className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-xl transition"
-      >
-        Contact Me
-      </a>
-    </div>
-  </section>
-);
+const profileLinks = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/gunasekaraselvapandian-annadurai/",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/Guna02826",
+  },
+];
 
-// --- About Section ---
-const About = () => (
-  <section className="bg-white text-gray-800 p-8 text-center">
-    <h2 className="text-3xl font-bold mb-4">Summary</h2>
-    <p className="max-w-3xl mx-auto mb-8">
-      Recent Computer Science graduate (2024) with hands-on full-stack MERN and
-      Spring Boot experience. Passionate about building scalable backend systems
-      using Java, Node.js, PostgreSQL/MongoDB, and AWS basics. Eager to
-      contribute to cloud-native projects and grow in a fast-paced,
-      team-oriented environment.
-    </p>
+const skillGroups = [
+  {
+    title: "Frontend",
+    items: ["React.js", "Next.js", "SvelteKit", "TailwindCSS", "HTML5", "CSS3"],
+  },
+  {
+    title: "Backend",
+    items: ["Node.js", "Express.js", "Fastify", "REST APIs", "JWT Authentication"],
+  },
+  {
+    title: "Database",
+    items: ["PostgreSQL", "MongoDB", "MySQL", "Mongoose", "Sequelize ORM"],
+  },
+  {
+    title: "Tools",
+    items: ["Git", "GitHub", "Postman", "AWS", "Technical Documentation"],
+  },
+];
 
-    <h3 className="text-2xl font-semibold mt-8 mb-2">Technical Skills</h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto text-left">
-      <p>
-        <strong>Languages:</strong> Java, JavaScript, SQL
-      </p>
-      <p>
-        <strong>Backend:</strong> Node.js, Express.js, Spring Boot, REST APIs,
-        JWT Auth
-      </p>
-      <p>
-        <strong>Frontend:</strong> React.js, HTML5, CSS3
-      </p>
-      <p>
-        <strong>Databases:</strong> MongoDB, PostgreSQL
-      </p>
-      <p>
-        <strong>Tools:</strong> Git, GitHub, Postman, VS Code, Netlify, Render
-      </p>
-      <p>
-        <strong>Cloud & Infra:</strong> AWS (EC2, S3 basics), Elasticsearch
-        (basic)
-      </p>
-      <p>
-        <strong>Concepts:</strong> OOP, Data Structures, API Design, JWT Auth,
-        Version Control
-      </p>
-    </div>
+const experienceEntries = [
+  {
+    role: "Software Engineering Intern",
+    company: "Cloud Desk Technologies Pvt Ltd",
+    location: "Chennai",
+    period: "Dec 2025 - Apr 2026",
+    intro:
+      "Worked on Neorem and Revo365 products and got hands-on experience with full-stack feature development.",
+    bullets: [
+      "Built and shipped 6 feature modules for Neorem across frontend pages, backend APIs, and database changes.",
+      "Created a customer portal from scratch with login, payments, maintenance tracking, and property-related workflows.",
+      "Developed a reusable SvelteKit UI library with 30+ components to support faster page development.",
+      "Migrated 18 Revo365 list pages and fixed a Razorpay payment-status issue in production.",
+    ],
+  },
+  {
+    role: "Software Development Intern",
+    company: "Zeromagic Labs Pvt. Ltd.",
+    location: "Chennai",
+    period: "Jan 2024 - Jun 2024",
+    intro:
+      "Worked on backend APIs and frontend integration for internal tools in an Agile team environment.",
+    bullets: [
+      "Designed and implemented Node.js and Express.js APIs for internal workflows and data pipelines.",
+      "Integrated APIs with React components to support complete end-to-end features.",
+      "Took part in sprint reviews, stand-ups, and regular code review cycles.",
+    ],
+  },
+];
 
-    <h3 className="text-2xl font-semibold mt-8 mb-2">Education</h3>
-    <p>
-      B.E. in Computer Science and Engineering, Sathyabama Institute of Science
-      and Technology, Chennai
-    </p>
-    <p>
-      Key Courses: Data Structures & Algorithms, Operating Systems, DBMS,
-      Software Engineering
-    </p>
+const projectEntries = [
+  {
+    title: "Lead Lynx",
+    stack: "React.js, Node.js, Express.js, MongoDB, JWT",
+    summary:
+      "A CRM project for managing leads, campaigns, and role-based user access in one place.",
+    bullets: [
+      "Implemented JWT-based authentication and protected routes.",
+      "Added campaign management and real-time notifications.",
+    ],
+    github: "https://github.com/Guna02826/LeadLynx",
+    live: "https://leadlynx.netlify.app/",
+    image: "/Leadlynx.gif",
+  },
+  {
+    title: "Chatter Box",
+    stack: "React.js, Node.js, Socket.io, Express.js",
+    summary:
+      "A real-time chat application with room-based messaging and deployed frontend-backend integration.",
+    bullets: [
+      "Built live messaging using Socket.io.",
+      "Handled deployment and cross-origin communication setup.",
+    ],
+    github: "https://github.com/Guna02826/chatterbox",
+    live: "https://chatterboxweb.netlify.app/",
+    image: "/Chatterbox.png",
+  },
+  {
+    title: "Shop Ease",
+    stack: "React.js, Node.js, Express.js, MongoDB, JWT",
+    summary:
+      "An e-commerce project with shopping flow, admin product management, and role-based access.",
+    bullets: [
+      "Built cart and purchase flow using React Context.",
+      "Added admin controls and secure authentication support.",
+    ],
+    github: "https://github.com/Guna02826/shop-ease",
+    live: "https://shop-ease-online.netlify.app/",
+    image: null,
+  },
+];
 
-    <h3 className="text-2xl font-semibold mt-8 mb-2">Soft Skills</h3>
-    <ul className="list-disc list-inside max-w-3xl mx-auto text-left">
-      <li>
-        Excellent communicator – Presented live demos to 20+ peers during
-        project expos
-      </li>
-      <li>
-        Problem-solver – Debugged and optimized APIs for multiple projects
-      </li>
-      <li>
-        Team player – Collaborated in Agile-style 3-member teams with Git-based
-        workflows
-      </li>
-    </ul>
-  </section>
-);
+const education = {
+  degree: "Bachelor of Engineering - Computer Science",
+  school: "Sathyabama Institute of Science and Technology, Chennai",
+  year: "2024",
+};
 
-// --- Projects Section ---
-const Projects = () => {
-  const projectList = [
-    {
-      title: "Delish Monde – E-Commerce Bakery Web App",
-      desc: "Full-stack MERN app with user authentication, product listings, and order placement features. Optimized MongoDB queries for faster product fetch, reducing latency by 15%. Deployed on Render + Netlify with responsive UI and secure backend routes.",
-      tech: "MERN Stack",
-      github: "https://github.com/Guna02826/delishmonde-store",
-      demo: "https://delishmonde-store.netlify.app/",
-      image: "/Delish Monde.png",
-    },
-    {
-      title: "Trackeroo – Expense Tracker Web App",
-      desc: "Built a Spring Boot + React app for expense tracking with transaction CRUD features. Added JWT-based authentication and PostgreSQL for secure, efficient data management. Deployed on Netlify (frontend) and Render (backend) with responsive UI.",
-      tech: "Spring Boot, React, PostgreSQL",
-      github: "https://github.com/Guna02826/expense-tracker",
-      demo: "https://trackeroo.netlify.app",
-      image: "/Trackeroo.png",
-    },
-    {
-      title: "Nexus-forge - Document Management System",
-      desc: "Developed an AI-powered collaborative knowledge platform using React, Node.js, Express, and Gemini API integration. Enabled secure document creation, real-time activity feeds, and intelligent Q&A search. Delivered enhanced team productivity and streamlined knowledge sharing, demonstrating expertise in full-stack development and AI service integration.",
-      tech: "React, Node.js, Express, Gemini API",
-      github: "https://github.com/Guna02826/nexus-forge",
-      demo: "https://nexusforgeapp.netlify.app/",
-      image: "/Nexus-forge.png",
-    },
-    {
-      title: "ChatterBox – Real-Time Chat App",
-      desc: "Real-time messaging app using WebSockets, JWT auth, and MongoDB for chat history. Built scalable backend API with Express; reduced response time by optimizing routes. Explored Kafka basics for possible pub-sub extension.",
-      tech: "React, Node.js, Socket.io, MongoDB",
-      github: "https://github.com/Guna02826/chatterbox",
-      demo: "https://chatterboxweb.netlify.app/",
-      image: "/Chatterbox.png",
-    },
-    {
-      title: "LeadLynx – Lead Management System",
-      desc: "A minimal lead & campaign management app",
-      tech: "React, Node.js, Express.js, MongoDB, JWT, Bcrypt, Toastify",
-      github: "https://github.com/Guna02826/LeadLynx",
-      demo: "https://leadlynx.netlify.app/",
-      image: "/Leadlynx.gif",
-    },
-  ];
+const sectionContainerClass =
+  "mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20";
+const buttonPrimaryClass =
+  "inline-flex w-full items-center justify-center rounded-md bg-slate-900 px-5 py-3 text-center text-sm font-medium !text-white transition hover:bg-slate-800 sm:w-auto";
+const buttonSecondaryClass =
+  "inline-flex w-full items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-3 text-center text-sm font-medium !text-slate-800 transition hover:bg-slate-50 sm:w-auto";
 
+function getEmailAddress() {
+  const user = ["gssp", "02826"].join("");
+  const domain = ["gmail", "com"].join(".");
+  return `${user}@${domain}`;
+}
+
+function openEmail() {
+  window.location.href = `mailto:${getEmailAddress()}`;
+}
+
+function SectionHeading({ title, subtitle }) {
   return (
-    <section id="projects" className="bg-gray-100 p-8">
-      <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projectList.map((project, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-6 rounded-xl shadow-md will-change-transform"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
+    <div className="max-w-2xl">
+      <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">
+        {title}
+      </h2>
+      {subtitle ? (
+        <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
+          {subtitle}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <header className="border-b border-slate-200 bg-white">
+      <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <a
+            href="#top"
+            className="max-w-[14rem] text-sm font-semibold leading-snug text-slate-900 sm:max-w-none"
           >
-            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-            <div className="w-full aspect-w-16 aspect-h-9 bg-gray-200 rounded-md mb-4 overflow-hidden flex justify-center items-center">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <p className="mb-2">{project.desc}</p>
-            <p className="text-sm text-gray-600 mb-2">Tech: {project.tech}</p>
-            <div className="flex flex-wrap gap-2">
+            Gunasekaraselvapandian
+          </a>
+          <nav className="hidden flex-wrap gap-4 md:flex">
+            {navLinks.map((link) => (
               <a
-                className="text-blue-600 hover:underline"
-                href={project.github}
+                key={link.label}
+                href={link.href}
+                className="text-sm text-slate-600 transition hover:text-slate-900"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <nav className="flex flex-wrap gap-2 md:hidden">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section id="top" className="border-b border-slate-200 bg-white">
+      <div className={sectionContainerClass}>
+        <div className="max-w-3xl">
+          <p className="text-sm font-medium text-slate-600">
+            B.E CSE Graduate | Full Stack Developer
+          </p>
+          <h1 className="mt-4 text-3xl font-semibold leading-tight text-slate-900 sm:text-5xl">
+            Hi, I'm Gunasekaraselvapandian Annadurai.
+          </h1>
+          <p className="mt-5 text-base leading-8 text-slate-700 sm:text-lg">
+            I completed my B.E in Computer Science and I am looking for a
+            full-stack developer opportunity where I can keep learning by working
+            on real projects.
+          </p>
+          <p className="mt-4 text-base leading-8 text-slate-600">
+            During my internships, I worked on frontend pages, backend APIs,
+            database changes, reusable UI components, and bug fixes using React,
+            Next.js, SvelteKit, Node.js, PostgreSQL, and MongoDB.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-sm text-slate-600">
+            <span>Chennai, India</span>
+            {profileLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
                 target="_blank"
                 rel="noreferrer"
+                className="underline-offset-4 hover:underline"
               >
-                GitHub
+                {link.label}
               </a>
-              |
-              <a
-                className="text-blue-600 hover:underline"
-                href={project.demo}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Live Demo
-              </a>
-            </div>
-          </motion.div>
-        ))}
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#projects"
+              className={buttonPrimaryClass}
+            >
+              Projects
+            </a>
+            <a
+              href="/Gunasekaraselvapandian_Resume.pdf"
+              download
+              className={buttonSecondaryClass}
+            >
+              Resume
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
-};
+}
 
-// --- Certifications Section ---
-const Certifications = () => (
-  <section className="bg-gray-50 text-gray-800 p-8">
-    <h2 className="text-3xl font-bold text-center mb-6">Certifications</h2>
-    <div className="flex flex-col sm:flex-row justify-center gap-6 flex-wrap">
-      <motion.a
-        href="/Certificate of Cloud Computing.jpg"
-        target="_blank"
-        rel="noreferrer"
-        className="bg-white p-6 rounded-xl shadow-md overflow-hidden block max-w-sm"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.4 }}
-      >
-        <div className="w-full aspect-w-16 aspect-h-9 bg-gray-200 rounded-md mb-4 overflow-hidden flex justify-center items-center">
-          <img
-            src="/Certificate of Cloud Computing.jpg"
-            alt="Introduction to Cloud Computing Certificate"
-            className="w-full h-full object-contain"
-          />
+function About() {
+  return (
+    <section id="about" className="border-t border-slate-200 bg-slate-50/60">
+      <div className={sectionContainerClass}>
+        <SectionHeading
+          title="About"
+          subtitle="A quick introduction."
+        />
+
+        <div className="mt-8 max-w-3xl border-l-2 border-sky-200 pl-5 text-sm leading-8 text-slate-700 sm:text-base">
+          <p>
+            I like full-stack development because it lets me understand how a
+            product works from UI to backend and database.
+          </p>
+          <p>
+            My internships helped me move from just building practice projects to
+            working on actual product features, integrations, bug fixes, and shared
+            UI components.
+          </p>
+          <p>
+            I am still early in my career, but I am comfortable taking up frontend
+            and backend tasks and improving step by step through team experience.
+          </p>
         </div>
-        <h3 className="text-xl font-semibold mb-2 text-center">
-          Introduction to Cloud Computing
-        </h3>
-        <p className="text-center">
-          Star Certifications – Basic cloud concepts and services
-        </p>
-      </motion.a>
-    </div>
-  </section>
-);
-
-// --- Contact Section ---
-const Contact = () => (
-  <section id="contact" className="bg-gray-100 text-gray-800 p-8 text-center">
-    <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
-    <form
-      name="contact"
-      method="POST"
-      action="https://formspree.io/f/xblgjbzn"
-      className="flex flex-col max-w-md mx-auto space-y-4 w-full"
-    >
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        required
-        className="p-2 border rounded w-full"
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Your Email"
-        required
-        className="p-2 border rounded w-full"
-      />
-      <textarea
-        name="message"
-        placeholder="Message"
-        required
-        className="p-2 border rounded w-full"
-      />
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full sm:w-auto"
-      >
-        Send
-      </button>
-    </form>
-  </section>
-);
-
-// --- Footer Section ---
-const Footer = () => (
-  <footer className="bg-gray-800 text-white text-center p-8">
-    <div className="max-w-3xl mx-auto space-y-4">
-      <p className="text-lg font-semibold">Connect with Me</p>
-      <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-        <a
-          href="https://github.com/Guna02826"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:underline"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://www.linkedin.com/in/gunasekaraselvapandian-annadurai/"
-          target="_blank"
-          rel="noreferrer"
-          className="hover:underline"
-        >
-          LinkedIn
-        </a>
       </div>
-      <p className="mt-4 text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} Gunasekaraselvapandian. All rights
-        reserved.
-      </p>
-    </div>
-  </footer>
-);
+    </section>
+  );
+}
 
-// --- Portfolio Component ---
+function Skills() {
+  return (
+    <section id="skills" className="border-t border-slate-200 bg-white">
+      <div className={sectionContainerClass}>
+        <SectionHeading
+          title="Skills"
+          subtitle="Main technologies I have worked with so far."
+        />
+
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 sm:gap-6">
+          {skillGroups.map((group) => (
+            <div
+              key={group.title}
+              className="rounded-lg border border-slate-200 bg-white p-5 sm:p-6"
+            >
+              <h3 className="text-lg font-semibold text-slate-900">{group.title}</h3>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700">
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  return (
+    <section id="experience" className="border-t border-slate-200 bg-slate-50/60">
+      <div className={sectionContainerClass}>
+        <SectionHeading
+          title="Internships"
+          subtitle="Where I got my first real product experience."
+        />
+
+        <div className="mt-8 space-y-6">
+          {experienceEntries.map((entry) => (
+            <article
+              key={`${entry.company}-${entry.role}`}
+              className="border-l-4 border-sky-700 pl-4 sm:pl-5"
+            >
+              <p className="text-sm font-medium text-slate-600">{entry.role}</p>
+              <h3 className="mt-2 text-xl font-semibold text-slate-900">
+                {entry.company}
+              </h3>
+              <p className="mt-1 text-sm text-slate-500">
+                {entry.location} | {entry.period}
+              </p>
+              <p className="mt-4 text-sm leading-7 text-slate-700 sm:text-base">
+                {entry.intro}
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-700 sm:text-base">
+                {entry.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Projects() {
+  return (
+    <section id="projects" className="border-t border-slate-200 bg-white">
+      <div className={sectionContainerClass}>
+        <SectionHeading
+          title="Projects"
+          subtitle="A few projects I built while practicing full-stack development."
+        />
+
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {projectEntries.map((project) => (
+            <article
+              key={project.title}
+              className="flex h-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
+            >
+              {project.image ? (
+                <div className="h-40 overflow-hidden bg-slate-100 sm:h-44">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+              ) : (
+                <div className="flex h-40 items-center justify-center bg-slate-100 px-4 text-center sm:h-44">
+                  <span className="text-2xl font-semibold text-slate-700">
+                    {project.title}
+                  </span>
+                </div>
+              )}
+
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <h3 className="text-xl font-semibold text-slate-900">
+                  {project.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate-500">{project.stack}</p>
+                <p className="mt-4 text-sm leading-7 text-slate-700">
+                  {project.summary}
+                </p>
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
+                  {project.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto flex flex-col gap-3 pt-5 sm:flex-row">
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-action-primary inline-flex w-full items-center justify-center rounded-md bg-slate-900 px-4 py-2 text-sm font-medium transition hover:bg-slate-800 sm:flex-1"
+                  >
+                    View Project
+                  </a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-action-secondary inline-flex w-full items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium transition hover:bg-slate-50 sm:flex-1"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Education() {
+  return (
+    <section id="education" className="border-t border-slate-200 bg-slate-50/60">
+      <div className={sectionContainerClass}>
+        <SectionHeading
+          title="Education"
+          subtitle="College details."
+        />
+
+        <div className="mt-8 rounded-lg border border-slate-200 bg-white p-5 sm:p-6">
+          <h3 className="text-xl font-semibold text-slate-900">{education.degree}</h3>
+          <p className="mt-2 text-sm leading-7 text-slate-700 sm:text-base">
+            {education.school}
+          </p>
+          <p className="mt-1 text-sm text-slate-500">Graduated in {education.year}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="border-t border-slate-200 bg-white">
+      <div className={sectionContainerClass}>
+        <SectionHeading
+          title="Contact"
+          subtitle="Best way to reach me is by email or LinkedIn."
+        />
+
+        <div className="mt-8 rounded-lg border border-slate-200 bg-white p-5 sm:p-6">
+          <p className="text-sm leading-7 text-slate-600">
+            I am open to full-stack developer opportunities.
+          </p>
+          <div className="mt-4 flex flex-col gap-3 sm:mt-5 sm:flex-row">
+            <button
+              type="button"
+              onClick={openEmail}
+              className={buttonPrimaryClass}
+            >
+              Email Me
+            </button>
+            <a
+              href="https://www.linkedin.com/in/gunasekaraselvapandian-annadurai/"
+              target="_blank"
+              rel="noreferrer"
+              className={buttonSecondaryClass}
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-slate-200 bg-slate-50 py-8">
+      <div className="mx-auto flex max-w-5xl flex-col gap-2 px-5 text-sm text-slate-500 sm:px-8 md:flex-row md:items-center md:justify-between">
+        <p>Gunasekaraselvapandian Annadurai</p>
+        <div className="flex flex-wrap gap-4">
+          {profileLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-slate-900"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 export default function Portfolio() {
   return (
-    <Router>
-      <div className="font-sans">
-        <Hero />
-        <About />
-        <Projects />
-        <Certifications />
-        <Contact />
-        <Footer />
-      </div>
-    </Router>
+    <main className="text-slate-900">
+      <Header />
+      <Hero />
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Education />
+      <Contact />
+      <Footer />
+    </main>
   );
 }
