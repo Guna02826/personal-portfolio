@@ -77,26 +77,22 @@ const profileLinks = [
 const skillGroups = [
   {
     title: "Frontend",
-    icon: <Code2 />,
-    color: "sky",
+    icon: <Code2 className="text-sky-400" />,
     items: ["React.js", "Next.js", "SvelteKit", "TailwindCSS", "HTML5", "CSS3"],
   },
   {
     title: "Backend",
-    icon: <Terminal />,
-    color: "indigo",
+    icon: <Terminal className="text-indigo-400" />,
     items: ["Node.js", "Express.js", "Fastify", "REST APIs", "JWT Authentication"],
   },
   {
     title: "Database",
-    icon: <Database />,
-    color: "emerald",
+    icon: <Database className="text-emerald-400" />,
     items: ["PostgreSQL", "MongoDB", "MySQL", "Mongoose", "Sequelize ORM"],
   },
   {
     title: "Tools",
-    icon: <Wrench />,
-    color: "amber",
+    icon: <Wrench className="text-amber-400" />,
     items: ["Antigravity", "Codex", "Git", "GitHub", "Postman", "AWS", "Technical Documentation"],
   },
 ];
@@ -143,7 +139,7 @@ const projectEntries = [
     ],
     github: "https://github.com/Guna02826/LeadLynx",
     live: "https://leadlynx.netlify.app/",
-    image: "/LeadLynx.mp4",
+    image: "/Leadlynx.gif",
   },
   {
     title: "Chatter Box",
@@ -156,9 +152,8 @@ const projectEntries = [
     ],
     github: "https://github.com/Guna02826/chatterbox",
     live: "https://chatterboxweb.netlify.app/",
-    image: "/Chatterbox.mp4",
+    image: "/Chatterbox.png",
   },
-/*
   {
     title: "Shop Ease",
     stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
@@ -171,20 +166,6 @@ const projectEntries = [
     github: "https://github.com/Guna02826/shop-ease",
     live: "https://shop-ease-online.netlify.app/",
     image: "/shopease.png",
-  },
-*/
-  {
-    title: "Delish Monde",
-    stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    summary:
-      "A sophisticated e-commerce platform for gourmet food with a triple-feedback system and seamless checkout.",
-    bullets: [
-      "Implemented a professional triple-feedback system for cart actions.",
-      "Built a globally synchronized state for cart and product management.",
-    ],
-    github: "https://github.com/Guna02826/delish-monde",
-    live: "https://delish-monde.netlify.app/",
-    image: "/DelishMonde.mp4",
   },
 ];
 
@@ -404,27 +385,12 @@ function Hero() {
       </div>
 
       <Motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 hidden sm:flex"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 hidden sm:block"
       >
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-          Scroll
-        </span>
-        <div className="h-10 w-6 rounded-full border-2 border-slate-700 p-1 flex justify-center">
-          <Motion.div 
-            animate={{ 
-              y: [0, 16, 0],
-              opacity: [1, 0, 1]
-            }}
-            transition={{ 
-              duration: 2, 
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="h-2 w-1 rounded-full bg-sky-500"
-          />
+        <div className="h-10 w-6 rounded-full border-2 border-slate-700 p-1">
+          <div className="h-2 w-1 mx-auto rounded-full bg-sky-500" />
         </div>
       </Motion.div>
     </section>
@@ -441,7 +407,7 @@ function About() {
           icon={Layers}
         />
         
-        <div className="grid gap-12 md:grid-cols-2 items-center">
+        <div className="grid gap-12 md:grid-cols-2">
           <Motion.div {...fadeInUp} className="space-y-6 text-lg text-slate-300">
             <p>
               I specialize in bridging the gap between design and development, 
@@ -494,26 +460,18 @@ function Skills() {
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {skillGroups.map((group, idx) => {
-            const colorClasses = {
-              sky: "text-sky-400 group-hover:bg-sky-500",
-              indigo: "text-indigo-400 group-hover:bg-indigo-500",
-              emerald: "text-emerald-400 group-hover:bg-emerald-500",
-              amber: "text-amber-400 group-hover:bg-amber-500",
-            };
-            
-            return (
-              <Motion.div
-                key={group.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="glass group relative overflow-hidden rounded-2xl p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-sky-500/10"
-              >
-                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800 transition-colors group-hover:text-white ${colorClasses[group.color]}`}>
-                  {group.icon}
-                </div>
+          {skillGroups.map((group, idx) => (
+            <Motion.div
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="glass group relative overflow-hidden rounded-2xl p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-sky-500/10"
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800 text-sky-400 transition-colors group-hover:bg-sky-500 group-hover:text-white">
+                {group.icon}
+              </div>
               <h3 className="mb-4 text-xl font-bold text-white">{group.title}</h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
@@ -525,9 +483,8 @@ function Skills() {
                   </span>
                 ))}
               </div>
-              </Motion.div>
-            );
-          })}
+            </Motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -588,7 +545,7 @@ function Experience() {
 function Projects() {
   return (
     <section id="projects" className="py-24 bg-slate-900/50">
-      <div className="container">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading 
           title="Featured Projects" 
           subtitle="Selected work that demonstrates my technical capabilities."
@@ -607,22 +564,11 @@ function Projects() {
             >
               <div className="relative h-56 overflow-hidden">
                 {project.image ? (
-                  project.image.endsWith(".mp4") ? (
-                    <video
-                      src={project.image}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                    />
-                  ) : (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                    />
-                  )
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-slate-800">
                     <Code2 size={48} className="text-slate-700" />
@@ -703,21 +649,17 @@ function Education() {
 
 function Contact() {
   const [copied, setCopied] = useState(false);
-  
-  // Obfuscated email parts
-  const emailUser = "gssp02826";
-  const emailDomain = "gmail.com";
-  const fullEmail = `${emailUser}@${emailDomain}`;
+  const email = "gssp02826@gmail.com";
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(fullEmail);
+    navigator.clipboard.writeText(email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <section id="contact" className="py-24 bg-slate-900/50">
-      <div className="container text-center">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
         <SectionHeading 
           title="Get In Touch" 
           subtitle="I'm currently looking for new opportunities. My inbox is always open!"
@@ -733,10 +675,10 @@ function Contact() {
           <div className="flex flex-col items-center gap-6">
             <button
               onClick={copyEmail}
-              className="group relative flex items-center gap-3 rounded-2xl bg-slate-800 px-8 py-4 text-sm sm:text-lg font-medium text-white transition hover:bg-slate-700"
+              className="group relative flex items-center gap-3 rounded-2xl bg-slate-800 px-8 py-4 text-lg font-medium text-white transition hover:bg-slate-700"
             >
               <Mail className="text-sky-400" />
-              <span className="truncate max-w-[200px] sm:max-w-none">{fullEmail}</span>
+              {email}
               <AnimatePresence>
                 {copied && (
                   <Motion.span
