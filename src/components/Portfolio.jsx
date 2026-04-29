@@ -139,7 +139,7 @@ const projectEntries = [
     ],
     github: "https://github.com/Guna02826/LeadLynx",
     live: "https://leadlynx.netlify.app/",
-    image: "/Leadlynx.gif",
+    image: "/LeadLynx.mp4",
   },
   {
     title: "Chatter Box",
@@ -152,20 +152,33 @@ const projectEntries = [
     ],
     github: "https://github.com/Guna02826/chatterbox",
     live: "https://chatterboxweb.netlify.app/",
-    image: "/Chatterbox.png",
+    image: "/Chatterbox.mp4",
   },
+  // {
+  //   title: "Shop Ease",
+  //   stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
+  //   summary:
+  //     "An e-commerce project with shopping flow, admin product management, and role-based access.",
+  //   bullets: [
+  //     "Built cart and purchase flow using React Context.",
+  //     "Added admin controls and secure authentication support.",
+  //   ],
+  //   github: "https://github.com/Guna02826/shop-ease",
+  //   live: "https://shop-ease-online.netlify.app/",
+  //   image: "/shopease.mp4",
+  // },
   {
-    title: "Shop Ease",
-    stack: ["React.js", "Node.js", "Express.js", "MongoDB"],
+    title: "Delish Monde",
+    stack: ["React", "Node.js", "Express.js", "MongoDB"],
     summary:
-      "An e-commerce project with shopping flow, admin product management, and role-based access.",
+      "A full-stack bakery e-commerce platform featuring secure user authentication, product management, and a comprehensive admin dashboard for sales insights.",
     bullets: [
-      "Built cart and purchase flow using React Context.",
-      "Added admin controls and secure authentication support.",
+      "Built secure authentication using JWT with HTTP-only cookies for enhanced security.",
+      "Implemented a complete ordering workflow with cart persistence and admin oversight for revenue and order tracking.",
     ],
-    github: "https://github.com/Guna02826/shop-ease",
-    live: "https://shop-ease-online.netlify.app/",
-    image: "/shopease.png",
+    github: "https://github.com/Guna02826/delishmonde-store/",
+    live: "https://delishmonde-store.netlify.app/",
+    image: "/DelishMonde.mp4",
   },
 ];
 
@@ -564,17 +577,28 @@ function Projects() {
             >
               <div className="relative h-56 overflow-hidden">
                 {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                  />
+                  project.image.endsWith('.mp4') ? (
+                    <video
+                      src={project.image}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                    />
+                  )
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-slate-800">
                     <Code2 size={48} className="text-slate-700" />
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 pointer-events-none" />
               </div>
 
               <div className="flex flex-1 flex-col p-8">
