@@ -234,7 +234,7 @@ function Header() {
   return (
     <header 
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled || isMenuOpen ? "glass py-3 shadow-lg" : "bg-transparent py-5"
+        isScrolled || isMenuOpen ? "glass py-3 shadow-lg" : "bg-slate-900/40 backdrop-blur-md py-5"
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -264,7 +264,7 @@ function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-4 border-r border-white/10 pr-4 mr-2">
+            <div className="hidden sm:flex items-center gap-3 border border-white/10 px-3 py-1.5 rounded-full glass mr-4">
               {profileLinks.map((link) => (
                 <a
                   key={link.label}
@@ -280,7 +280,7 @@ function Header() {
             </div>
             
             <button 
-              className="md:hidden text-slate-300"
+              className="md:hidden text-slate-300 p-2 pb-2.5 rounded-xl glass hover:text-sky-400 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <CheckCircle2 size={24} className="rotate-45" /> : <Layers size={24} />}
@@ -764,4 +764,3 @@ export default function Portfolio() {
     </main>
   );
 }
-
